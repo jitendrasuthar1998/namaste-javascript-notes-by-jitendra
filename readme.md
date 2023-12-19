@@ -49,3 +49,46 @@ Now, the call stack is empty so the script stops executing:
 The following picture illustrates the overall status of the Call Stack in all steps:
 
 <img src="https://www.javascripttutorial.net/wp-content/uploads/2019/12/JavaScript-Call-Stack.png"/>
+
+#### What is the Scope Chain?
+
+```
+function b(){
+    c()
+    function c(){
+        console.log(a);
+    }
+}
+
+var a = 5;
+b();
+```
+
+In above example, we are trying to access the variable a in function c, which we haven't defined in function c.
+
+Because of it, javascript compiler searchs for the variable a outside function c.
+
+Function b is the parent function of function c, and the environment of function b outside function c is called lexical environment.
+
+In that lexical environment, javascript compiler searches for the variable a.
+
+And when javascript compiler deoesn't find the variable a, it comes outside of function b also.
+
+and searches for the variable a outside function b.
+
+Outside function b, we have defined variable a, so now javascript compiler grabs the variable a value and prints it to the console.
+
+#### What is Scope?
+
+Scope means where we can access a specific variable or a function in our code.
+
+Scope is directly dependent on the lexical environment.
+
+Whenever a function is invoked, an execution context and lexical environment is created.
+
+Lexical environment is the local memory along with the lexical environment of its parent.
+
+Lexical as a term means hirarchy.
+
+In above code, function c is lexically siting inside a function.
+
